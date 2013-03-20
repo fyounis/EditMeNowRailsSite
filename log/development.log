@@ -1,0 +1,875 @@
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 18:48:28 -0400
+  Processing by UsersController#new as HTML
+Completed   in 10ms
+
+ActiveRecord::StatementInvalid (Could not find table 'users'):
+  app/controllers/users_controller.rb:27:in `new'
+  app/controllers/users_controller.rb:27:in `new'
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateUsers (20110308195309)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110308195309')
+Migrating to AddAttatchPaperclip (20110308195411)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "users" ADD "attach_file_name" varchar(255)[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "users" ADD "attach_content_type" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "users" ADD "attach_file_size" integer[0m
+  [1m[35mSQL (0.1ms)[0m  ALTER TABLE "users" ADD "attach_updated_at" datetime
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110308195411')[0m
+Migrating to AddPicPaperclip (20110308195425)
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "users" ADD "pic_file_name" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "users" ADD "pic_content_type" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  ALTER TABLE "users" ADD "pic_file_size" integer
+  [1m[36mSQL (0.1ms)[0m  [1mALTER TABLE "users" ADD "pic_updated_at" datetime[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110308195425')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 18:49:00 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb__4549133400983729587_70120612010300__252111877849554940 at /Users/regisjorda/Downloads/PaperClipExample-master/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (37.0ms)
+Rendered users/new.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 59ms (Views: 45.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 18:49:18 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"re", "email"=>"re", "pic"=>#<ActionDispatch::Http::UploadedFile:0x007f8c726eb5a8 @original_filename="IMG_1036.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[pic]\"; filename=\"IMG_1036.JPG\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/RackMultipart20130319-26822-fjb1kd>>}, "commit"=>"Create User"}
+[paperclip] identify -format %wx%h '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-26822-8rsemo.JPG[0]' 2>/dev/null
+[paperclip] convert '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-26822-8rsemo.JPG[0]' -resize "300x300>" '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-26822-8rsemo20130319-26822-1k8jcvk' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-26822-8rsemo.JPG[0]' 2>/dev/null
+[paperclip] convert '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-26822-8rsemo.JPG[0]' -resize "100x100>" '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-26822-8rsemo20130319-26822-ue7rhn' 2>/dev/null
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (1.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('re', 're', '2013-03-19 22:49:19.521869', '2013-03-19 22:49:19.521869', NULL, NULL, NULL, NULL, 'IMG_1036.JPG', 'image/jpeg', 1420486, '2013-03-19 22:49:18.662651')
+[paperclip] Saving attachments.
+[paperclip] saving /Users/regisjorda/Downloads/PaperClipExample-master/public/system/pics/1/original/IMG_1036.JPG
+[paperclip] saving /Users/regisjorda/Downloads/PaperClipExample-master/public/system/pics/1/medium/IMG_1036.JPG
+[paperclip] saving /Users/regisjorda/Downloads/PaperClipExample-master/public/system/pics/1/thumb/IMG_1036.JPG
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 967ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-03-19 18:49:19 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (36.7ms)
+Completed 200 OK in 62ms (Views: 42.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/attaches/original/missing.png" for 127.0.0.1 at 2013-03-19 18:49:32 -0400
+
+ActionController::RoutingError (No route matches "/attaches/original/missing.png"):
+  
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 18:49:40 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 30ms (Views: 19.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-03-19 18:49:45 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (38.1ms)
+Completed 200 OK in 57ms (Views: 43.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2013-03-19 18:49:47 -0400
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb__4549133400983729587_70120609484400__252111877849554940 at /Users/regisjorda/Downloads/PaperClipExample-master/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (16.4ms)
+Rendered users/edit.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 38ms (Views: 25.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/1" for 127.0.0.1 at 2013-03-19 18:49:51 -0400
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+[paperclip] Deleting attachments.
+[paperclip] deleting /Users/regisjorda/Downloads/PaperClipExample-master/public/system/pics/1/original/IMG_1036.JPG
+[paperclip] deleting /Users/regisjorda/Downloads/PaperClipExample-master/public/system/pics/1/medium/IMG_1036.JPG
+[paperclip] deleting /Users/regisjorda/Downloads/PaperClipExample-master/public/system/pics/1/thumb/IMG_1036.JPG
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = 1
+Redirected to http://localhost:3000/users
+Completed 302 Found in 65ms
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 18:49:51 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 15ms (Views: 5.6ms | ActiveRecord: 1.7ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110308195309)
+Migrating to AddAttatchPaperclip (20110308195411)
+Migrating to AddPicPaperclip (20110308195425)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 18:53:50 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 55ms (Views: 7.6ms | ActiveRecord: 1.1ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110308195309)
+Migrating to AddAttatchPaperclip (20110308195411)
+Migrating to AddPicPaperclip (20110308195425)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:42:26 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360300337240__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (19.9ms)
+Rendered users/new.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 40ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:42:27 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360299274420__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (9.8ms)
+Rendered users/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 29ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:42:31 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 56ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:42:32 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360298186340__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (10.2ms)
+Rendered users/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 30ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 22:42:41 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"", "email"=>"", "attach"=>#<ActionDispatch::Http::UploadedFile:0x007ffc10ad4760 @original_filename="IMG_1042.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[attach]\"; filename=\"IMG_1042.JPG\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/RackMultipart20130319-41108-126bze2>>}, "commit"=>"Create User"}
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360293183240__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (5.1ms)
+Rendered users/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 73ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 22:43:15 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"Regis", "email"=>"r_jorda12@hotmail.com", "attach"=>#<ActionDispatch::Http::UploadedFile:0x007ffc12147bc8 @original_filename="IMG_1035.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[attach]\"; filename=\"IMG_1035.JPG\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/RackMultipart20130319-41108-stnbm7>>, "pic"=>#<ActionDispatch::Http::UploadedFile:0x007ffc12147ab0 @original_filename="IMG_1036.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[pic]\"; filename=\"IMG_1036.JPG\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/RackMultipart20130319-41108-18fm3mm>>}, "commit"=>"Create User"}
+[paperclip] identify -format %wx%h '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-41108-1plm4p8.JPG[0]' 2>/dev/null
+[paperclip] convert '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-41108-1plm4p8.JPG[0]' -resize "300x300>" '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-41108-1plm4p820130319-41108-1x0lfja' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-41108-1plm4p8.JPG[0]' 2>/dev/null
+[paperclip] convert '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-41108-1plm4p8.JPG[0]' -resize "100x100>" '/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/stream20130319-41108-1plm4p820130319-41108-1849glz' 2>/dev/null
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('Regis', 'r_jorda12@hotmail.com', '2013-03-20 02:43:16.534041', '2013-03-20 02:43:16.534041', 'IMG_1035.JPG', 'image/jpeg', 1842679, '2013-03-20 02:43:15.682666', 'IMG_1036.JPG', 'image/jpeg', 1420486, '2013-03-20 02:43:15.707925')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/pics/2/original/IMG_1036.JPG
+[paperclip] saving /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/pics/2/medium/IMG_1036.JPG
+[paperclip] saving /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/pics/2/thumb/IMG_1036.JPG
+[paperclip] saving /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/attaches/2/original/IMG_1035.JPG
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 949ms
+
+
+Started GET "/users/2" for 127.0.0.1 at 2013-03-19 22:43:16 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered users/show.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 73ms (Views: 53.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:43:20 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 28ms (Views: 19.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2013-03-19 22:43:26 -0400
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360294638660__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (16.6ms)
+Rendered users/edit.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 37ms (Views: 23.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/2" for 127.0.0.1 at 2013-03-19 22:43:29 -0400
+  Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"Regis", "email"=>"r_jorda12@hotmail.com"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 47ms
+
+
+Started GET "/users/2" for 127.0.0.1 at 2013-03-19 22:43:29 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered users/show.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 48ms (Views: 29.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:43:33 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 28ms (Views: 18.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:43:35 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360310682480__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (11.0ms)
+Rendered users/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 30ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:43:37 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 70ms (Views: 21.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2013-03-19 22:43:46 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 34ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:43:58 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 28ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/2" for 127.0.0.1 at 2013-03-19 22:44:01 -0400
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+[paperclip] Deleting attachments.
+[paperclip] deleting /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/pics/2/original/IMG_1036.JPG
+[paperclip] deleting /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/pics/2/medium/IMG_1036.JPG
+[paperclip] deleting /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/pics/2/thumb/IMG_1036.JPG
+[paperclip] deleting /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/attaches/2/original/IMG_1035.JPG
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = 2
+Redirected to http://localhost:3000/users
+Completed 302 Found in 67ms
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:44:01 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 8.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:45:19 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360311050760__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (11.6ms)
+Rendered users/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 29ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 22:45:53 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"df", "email"=>"df"}, "commit"=>"Create User"}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('df', 'df', '2013-03-20 02:45:53.852675', '2013-03-20 02:45:53.852675', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 73ms
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-03-19 22:45:53 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 39ms (Views: 23.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/pics/original/missing.png" for 127.0.0.1 at 2013-03-19 22:45:54 -0400
+
+ActionController::RoutingError (No route matches "/pics/original/missing.png"):
+  
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/pics/medium/missing.png" for 127.0.0.1 at 2013-03-19 22:45:54 -0400
+
+ActionController::RoutingError (No route matches "/pics/medium/missing.png"):
+  
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/pics/thumb/missing.png" for 127.0.0.1 at 2013-03-19 22:45:54 -0400
+
+ActionController::RoutingError (No route matches "/pics/thumb/missing.png"):
+  
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:46:01 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 54ms (Views: 19.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-03-19 22:46:03 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 32ms (Views: 17.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pics/original/missing.png" for 127.0.0.1 at 2013-03-19 22:46:03 -0400
+
+ActionController::RoutingError (No route matches "/pics/original/missing.png"):
+  
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/pics/medium/missing.png" for 127.0.0.1 at 2013-03-19 22:46:03 -0400
+
+ActionController::RoutingError (No route matches "/pics/medium/missing.png"):
+  
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/pics/thumb/missing.png" for 127.0.0.1 at 2013-03-19 22:46:03 -0400
+
+ActionController::RoutingError (No route matches "/pics/thumb/missing.png"):
+  
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:46:06 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 53ms (Views: 19.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/3" for 127.0.0.1 at 2013-03-19 22:46:10 -0400
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+[paperclip] Deleting attachments.
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "users" WHERE "users"."id" = 3
+Redirected to http://localhost:3000/users
+Completed 302 Found in 34ms
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:46:10 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 31ms (Views: 21.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:46:12 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360299682520__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (9.6ms)
+Rendered users/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 28ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:46:16 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 17ms (Views: 5.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:46:59 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 14ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:47:00 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360299731360__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (33.9ms)
+Rendered users/new.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 53ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:47:07 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 13ms (Views: 5.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:47:12 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360310647920__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (9.3ms)
+Rendered users/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 28ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 22:47:16 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"df", "email"=>"df"}, "commit"=>"Create User"}
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('df', 'df', '2013-03-20 02:47:16.851708', '2013-03-20 02:47:16.851708', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 71ms
+
+
+Started GET "/users/4" for 127.0.0.1 at 2013-03-19 22:47:16 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+Rendered users/show.html.erb within layouts/application (24.0ms)
+Completed   in 46ms
+
+ActionView::Template::Error (undefined method `pic' for #<User:0x007ffc1128d038>):
+    13: <a href="<%= @user.attach.url %> "><b> File attached </b></a>
+    14: <br/>
+    15: <% # Will show the real size picture %>
+    16: <%= image_tag @user.pic.url %>
+    17: <br/>
+    18: <% # Will the style MEDIUM configured before in your model %>
+    19: <%= image_tag @user.pic.url(:medium) %>
+  app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2126677817125559812_70360297717740__114626508435326118'
+  app/controllers/users_controller.rb:18:in `show'
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.5ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 22:47:23 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"df", "email"=>"df"}, "commit"=>"Create User"}
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('df', 'df', '2013-03-20 02:47:23.066942', '2013-03-20 02:47:23.066942', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 31ms
+
+
+Started GET "/users/5" for 127.0.0.1 at 2013-03-19 22:47:23 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (38.8ms)
+Completed   in 60ms
+
+ActionView::Template::Error (undefined method `pic' for #<User:0x007ffc10c59c70>):
+    13: <a href="<%= @user.attach.url %> "><b> File attached </b></a>
+    14: <br/>
+    15: <% # Will show the real size picture %>
+    16: <%= image_tag @user.pic.url %>
+    17: <br/>
+    18: <% # Will the style MEDIUM configured before in your model %>
+    19: <%= image_tag @user.pic.url(:medium) %>
+  app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2126677817125559812_70360294956480__114626508435326118'
+  app/controllers/users_controller.rb:18:in `show'
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 22:47:28 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"df", "email"=>"df", "pic"=>#<ActionDispatch::Http::UploadedFile:0x007ffc10aeb1b8 @original_filename="IMG_1037.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[pic]\"; filename=\"IMG_1037.JPG\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/RackMultipart20130319-41108-1x9il8>>}, "commit"=>"Create User"}
+Completed   in 18ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: pic):
+  app/controllers/users_controller.rb:43:in `new'
+  app/controllers/users_controller.rb:43:in `create'
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (23.5ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:47:33 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 36ms (Views: 24.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at 2013-03-19 22:47:36 -0400
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "id"=>"5"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+[paperclip] Deleting attachments.
+  [1m[36mAREL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 30ms
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:47:36 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 29ms (Views: 18.7ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users/4" for 127.0.0.1 at 2013-03-19 22:47:38 -0400
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "id"=>"4"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+[paperclip] Deleting attachments.
+  [1m[35mAREL (0.6ms)[0m  DELETE FROM "users" WHERE "users"."id" = 4
+Redirected to http://localhost:3000/users
+Completed 302 Found in 33ms
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:47:38 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (13.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 29ms (Views: 6.6ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:48:18 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 13ms (Views: 5.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:48:19 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360295578760__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (10.1ms)
+Rendered users/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 29ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:48:36 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360306982980__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (21.9ms)
+Rendered users/new.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 42ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:53:54 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360294003460__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (9.8ms)
+Rendered users/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 54ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:53:56 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 15ms (Views: 6.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-19 22:53:58 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360305335200__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (10.1ms)
+Rendered users/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 28ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-19 22:54:05 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"sf", "email"=>"sdf", "attach"=>#<ActionDispatch::Http::UploadedFile:0x007ffc10a59d58 @original_filename="IMG_1015.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[attach]\"; filename=\"IMG_1015.JPG\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/RackMultipart20130319-41108-jgl9tn>>}, "commit"=>"Create User"}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('sf', 'sdf', '2013-03-20 02:54:06.012077', '2013-03-20 02:54:06.012077', 'IMG_1015.JPG', 'image/jpeg', 2404045, '2013-03-20 02:54:05.993615', NULL, NULL, NULL, NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/attaches/6/original/IMG_1015.JPG
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 87ms
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:54:06 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (16.0ms)
+Completed   in 59ms
+
+ActionView::Template::Error (undefined method `pic' for #<User:0x007ffc10a59c90>):
+    13: <a href="<%= @user.attach.url %> "><b> File attached </b></a>
+    14: <br/>
+    15: <% # Will show the real size picture %>
+    16: <%= image_tag @user.pic.url %>
+    17: <br/>
+    18: <% # Will the style MEDIUM configured before in your model %>
+    19: <%= image_tag @user.pic.url(:medium) %>
+  app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2126677817125559812_70360294118120__114626508435326118'
+  app/controllers/users_controller.rb:18:in `show'
+
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/regisjorda/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:54:47 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Rendered users/show.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 33ms (Views: 20.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:54:51 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 29ms (Views: 20.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:54:54 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Rendered users/show.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 31ms (Views: 18.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:55:57 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 30ms (Views: 18.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:55:59 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Rendered users/show.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 71ms (Views: 50.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:56:31 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 33ms (Views: 19.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:56:34 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 42ms (Views: 30.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:56:36 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 39ms (Views: 23.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/6/edit" for 127.0.0.1 at 2013-03-19 22:58:16 -0400
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb___642187725066516133_70360310515060__2624577743273152472 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (14.6ms)
+Rendered users/edit.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 34ms (Views: 21.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:58:21 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 54ms (Views: 17.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-19 22:58:28 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 29ms (Views: 20.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-19 22:58:33 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 41ms (Views: 24.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-20 13:54:42 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 67ms (Views: 21.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 169.254.152.179 at 2013-03-20 13:58:24 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 26ms (Views: 18.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-20 14:23:46 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 28ms (Views: 19.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-03-20 14:23:49 -0400
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb__280276762540187065_70319238571980_3289269108661682986 at /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (17.2ms)
+Rendered users/new.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 54ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-20 14:24:18 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R5/gcEDFGYUUszimspXGMX7cgIkteBOM+v66HNURI20=", "user"=>{"name"=>"re", "email"=>"fd", "attach"=>#<ActionDispatch::Http::UploadedFile:0x007fe8f2783ab0 @original_filename="IMG_1015.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[attach]\"; filename=\"IMG_1015.JPG\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/6w/zbq8xgfs10qfmmv8ptnqbvnh0000gn/T/RackMultipart20130320-51234-14xvcii>>}, "commit"=>"Create User"}
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('re', 'fd', '2013-03-20 18:24:18.632959', '2013-03-20 18:24:18.632959', 'IMG_1015.JPG', 'image/jpeg', 2404045, '2013-03-20 18:24:18.596069', NULL, NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/regisjorda/Documents/Rails_Application/EditMeNowImageUpload/public/system/attaches/7/original/IMG_1015.JPG
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 113ms
+
+
+Started GET "/users/7" for 127.0.0.1 at 2013-03-20 14:24:18 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Rendered users/show.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 51ms (Views: 28.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-20 14:24:25 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 29ms (Views: 18.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2013-03-20 14:24:31 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Rendered users/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 54ms (Views: 17.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-20 14:24:35 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 44ms (Views: 35.7ms | ActiveRecord: 1.1ms)
