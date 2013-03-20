@@ -31,3 +31,7 @@ gem "paperclip", "~> 2.3"
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :production do
+  gem 'pg', '0.12.2'
+end
