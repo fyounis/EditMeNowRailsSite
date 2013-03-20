@@ -5,7 +5,6 @@ gem 'rails', '3.0.4'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 gem "paperclip", "~> 2.3"
 
@@ -37,5 +36,5 @@ group :production, :staging do
 end
 
 group :development, :test do
-  gem "sqlite3-ruby"
+  gem "sqlite3"
 end
