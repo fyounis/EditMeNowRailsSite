@@ -908,3 +908,10 @@ Started GET "/" for 127.0.0.1 at 2013-03-20 17:17:01 -0400
   [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
 Rendered users/index.html.erb within layouts/application (36.1ms)
 Completed 200 OK in 71ms (Views: 40.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-20 17:22:08 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 63ms (Views: 21.1ms | ActiveRecord: 1.4ms)
