@@ -32,6 +32,10 @@ gem "paperclip", "~> 2.3"
 #   gem 'webrat'
 # end
 
-group :production do
-  gem 'pg', '0.12.2'
+group :production, :staging do
+  gem "pg"
+end
+
+group :development, :test do
+  gem "sqlite3-ruby"
 end
